@@ -37,7 +37,7 @@ para levantar aplicacion Django dentro de contenedor Docker:
 
 El archivo entrypoint.sh se gatilla al momento de levantar 
 el contenedor Docker permitiendo la ejecucion de migraciones
-y la ejecucion de la aplicacion utilizando runserver:
+y la ejecucion de la aplicacion Django utilizando runserver:
 
 ```
 
@@ -47,5 +47,33 @@ y la ejecucion de la aplicacion utilizando runserver:
   python manage.py runserver 0.0.0.0:8888
 
 ```
+
+--------------------------------------------------------------------
+
+Se construye imagen a partir de archivo Dockerfile y se levanta 
+contenedor a partir de la imagen generada:
+
+```
+
+  docker build -t django-rest-books .
+
+  docker run -d -p8000:8888 django-rest-books
+
+```
+
+--------------------------------------------------------------------
+
+**Ejecucion de endpoint que agrega libros por medio de Postman:**
+
+![Screenshot PostMovie](screenshots/django-create-book.png)
+
+
+--------------------------------------------------------------------
+
+
+**Ejecucion de endpoint que recupera libros por medio de Postman:**
+
+![Screenshot GetMovies](screenshots/django-retrieve-books.png)
+
 
 --------------------------------------------------------------------
